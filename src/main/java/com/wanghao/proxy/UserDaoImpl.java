@@ -15,4 +15,8 @@ public class UserDaoImpl implements UserDao {
     public void save() {
         logger.info("save data success!");
     }
+    
+    public static void test(){
+        logger.info("test data success!");
+    }
 }

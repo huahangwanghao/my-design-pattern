@@ -53,7 +53,7 @@ public class ProxyMain {
      * Cglib代理: 子类代理, 需要在内存中构建一个目标对象的子类对象.<br>
      * <ol>
      *     <li>目标类不能使用final修改, 这样就没有子类啦</li>
-     *     <li>目标对象的方法如果是 static/final 修改 就不能被代理啦.</li>
+     *     <li>目标对象的方法如果是 static/final 修改 就不能被代理啦.. 只是运行目标方法里面内容</li>
      *     <li>123</li>
      *     <li>123</li>
      *     
@@ -61,10 +61,11 @@ public class ProxyMain {
      *
      */
     public static void testCglib(){
-        UserDao userDao=new UserDaoImpl();
+        UserDaoImpl userDao=new UserDaoImpl();
         CglibProxy cglibProxy=new CglibProxy(userDao);
-        UserDao userDaoProxy= (UserDao) cglibProxy.getProxyInstance();
+        UserDaoImpl userDaoProxy= (UserDaoImpl) cglibProxy.getProxyInstance();
         userDaoProxy.save();
+        userDaoProxy.test();
     }
 
 }
