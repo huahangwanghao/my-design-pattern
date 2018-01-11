@@ -2,10 +2,13 @@ package com.wanghao.factory;/**
  * Created by Administrator on 2018/1/11.
  */
 
+import javax.annotation.Resource;
+
 /**
  * @author WangH
  * @create 2018-01-11 14:18
  **/
+@Resource
 public class UserInfo {
     
     private int id;
