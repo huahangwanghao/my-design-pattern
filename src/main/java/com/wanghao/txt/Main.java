@@ -142,6 +142,7 @@ public class Main {
         studentInfo.setZhengJianNo(zhengjianNo);
 
         String beizhu=s[++i];
+        int x=i;
         if(beizhu.length()!=0){
             studentInfo.setBeizhu(beizhu);
         }else{
@@ -149,7 +150,26 @@ public class Main {
         }
 
         String email=s[++i];
-        studentInfo.setEmail(email);
+        if(isEmail(email)){
+            studentInfo.setEmail(email);    
+        }else{
+            //如果不是email
+            int j=i;
+            for(int m=1;i<100;m++){
+               if(isEmail(s[j+m])){
+                   studentInfo.setEmail(s[j+m]);       
+                   i=j+m;
+                   int xx=i;
+                   StringBuilder sb =new StringBuilder();
+                   for(int g=x;g<xx;g++){
+                       sb.append(s[g]);
+                   }
+                   studentInfo.setBeizhu(sb.toString());
+                   break;
+               }
+            }
+        }
+        
 
         String jiBie=s[++i];
         studentInfo.setJiBie(jiBie);
@@ -177,6 +197,13 @@ public class Main {
         Pattern p = Pattern.compile("^((13[0-9])|(19[0-9])|(15[^4,\\D])|(18[0-9]))\\d{8}$");
         Matcher m = p.matcher(mobiles);
         return m.matches();
+    }
+
+    public static boolean isEmail(String email) {
+        String check = "^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+        Pattern regex = Pattern.compile(check);
+        Matcher matcher = regex.matcher(email);
+        return  matcher.matches();
     }
 
 

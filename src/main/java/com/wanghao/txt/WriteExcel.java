@@ -52,6 +52,34 @@ public class WriteExcel {
              * 往Excel中写新数据 
              */
             for (int j = 0; j < dataList.size(); j++) {
+                
+                if(j==0){
+                    Row row = sheet.createRow(j);    
+                    row.createCell(0).setCellValue("客户姓名");
+                    row.createCell(1).setCellValue("性别");
+                    row.createCell(2).setCellValue("手机号码");
+                    row.createCell(3).setCellValue("管理手机号码");
+                    row.createCell(4).setCellValue("紧急联系人及号码"); 
+                    row.createCell(5).setCellValue("创建时间");
+                    row.createCell(6).setCellValue("证件类型");
+                    row.createCell(7).setCellValue("证件号码"); 
+                    row.createCell(8).setCellValue("备注");
+                    row.createCell(9).setCellValue("邮箱");
+                    row.createCell(10).setCellValue("级别");
+                    row.createCell(11).setCellValue("班级");
+                    row.createCell(12).setCellValue("报考院校");
+                    row.createCell(13).setCellValue("报考专业");
+                    row.createCell(14).setCellValue("应缴学费");
+                    row.createCell(15).setCellValue("实缴学费");
+                    row.createCell(16).setCellValue("支付方式");
+                    row.createCell(17).setCellValue("几年学制");
+                    row.createCell(18).setCellValue("是否包含学位");
+                    
+                    
+                    
+                    
+                }
+                
                 // 创建一行：从第二行开始，跳过属性列  
                 Row row = sheet.createRow(j + 1);
                 // 得到要插入的每一条记录  
